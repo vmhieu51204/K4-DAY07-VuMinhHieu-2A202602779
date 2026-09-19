@@ -1,0 +1,85 @@
+============================================================
+KẾT QUẢ ĐÁNH GIÁ BENCHMARK TRUY XUẤT (LAB 07)
+Corpus: data\university (7 files, 30 chunks)
+Backend: gemini-embedding-001
+============================================================
+
+--- Câu hỏi 1 ---
+Query: Mức học phí niêm yết hàng năm của chương trình Bác sĩ Y khoa và Cử nhân Điều dưỡng tại VinUni là bao nhiêu?
+Metadata filter: None
+Tài liệu mục tiêu: undergraduate-tuition-fees-tariff, tuition-scholarship-financial-aid-faq, financial-regulations-tariff-student
+Gold answer: Cử nhân Điều dưỡng là 349,650,000 VND/năm; Bác sĩ Y khoa là 815,850,000 VND/năm (chưa trừ 35% hỗ trợ từ Founder).
+
+Top-3 Chunks retrieved:
+  [1] tuition-scholarship-financial-aid-faq#1 (doc_id=tuition-scholarship-financial-aid-faq, aud=all, score=0.8220) [HIT]
+      ## 1. How much does it cost to study at VinUni? - **Listed Tuition for Undergraduate Programs:**   - Bachelor of Nursing: **349,650,000 VND*...
+  [2] financial-regulations-tariff-student#1 (doc_id=financial-regulations-tariff-student, aud=student, score=0.7991) [HIT]
+      **Listed tuition fee by program (Unit: VND):** - **Bachelor of Nursing (4 years):** 349,650,000 VND / academic year; 174,825,000 VND / semes...
+  [3] undergraduate-tuition-fees-tariff#0 (doc_id=undergraduate-tuition-fees-tariff, aud=all, score=0.7834) [HIT]
+      # VinUni Undergraduate Tuition Fees Tariff (Academic Year 2026-2027)  At VinUniversity, every admitted student receives a founder-funded tui...
+Đánh giá Top-1 Relevant: ĐÚNG
+------------------------------------------------------------
+
+--- Câu hỏi 2 ---
+Query: Thời hạn mượn sách in tối đa là bao nhiêu ngày và được mượn bao nhiêu cuốn sách?
+Metadata filter: {'audience': 'student'}
+Tài liệu mục tiêu: library-services-student
+Gold answer: Sinh viên được mượn tối đa 05 cuốn sách in trong thời hạn 14 ngày (được gia hạn tối đa 02 lần). Cần filter audience=student để không lấy nhầm quy định giảng viên là 30 cuốn/180 ngày.
+
+Top-3 Chunks retrieved:
+  [1] library-services-student#0 (doc_id=library-services-student, aud=student, score=0.7979) [HIT]
+      # Quy định mượn trả tài liệu thư viện cho sinh viên  Thư viện VinUniversity quy định chính sách mượn trả tài liệu học tập và nghiên cứu dành...
+  [2] library-services-student#1 (doc_id=library-services-student, aud=student, score=0.7062) [HIT]
+      ## 2. Phí quá hạn và bồi hoàn - Phí quá hạn đối với sinh viên: 5,000 VND / ngày / cuốn sách. - Sinh viên làm mất hoặc hư hỏng tài liệu phải ...
+  [3] hoc-phi-hust#2 (doc_id=hoc-phi-hust, aud=student, score=0.5721) [MISS]
+      - Quy định về mức học phí năm học 2024-2025 đối với chương trình đào tạo Thạc sĩ, Tiến sĩ (đơn vị tính: nghìn đồng/01 tín chỉ học phí)....
+Đánh giá Top-1 Relevant: ĐÚNG
+------------------------------------------------------------
+
+--- Câu hỏi 3 ---
+Query: Sinh viên thanh toán học phí VinUni bằng những phương thức nào và nộp mấy lần trong năm?
+Metadata filter: None
+Tài liệu mục tiêu: tuition-scholarship-financial-aid-faq, financial-regulations-tariff-student
+Gold answer: Nộp 2 lần/năm vào đầu mỗi học kỳ chính (kỳ Thu và kỳ Xuân). Có các phương thức: nộp trực tuyến qua cổng my.vinuni.edu.vn, nộp trực tiếp thẻ tại Phòng Kế toán hoặc chuyển khoản ngân hàng Techcombank.
+
+Top-3 Chunks retrieved:
+  [1] financial-regulations-tariff-student#8 (doc_id=financial-regulations-tariff-student, aud=student, score=0.8136) [HIT]
+      ### 1. Payment Methods - **Online Payment:** Through the online payment portal at `https://my.vinuni.edu.vn/` - **Bank Transfer (VND):**   -...
+  [2] tuition-scholarship-financial-aid-faq#2 (doc_id=tuition-scholarship-financial-aid-faq, aud=all, score=0.7919) [HIT]
+        - Further deductions apply if students receive additional merit scholarships (50%, 90%, 100%, full ride) or need-based financial aid.  ## ...
+  [3] tuition-scholarship-financial-aid-faq#0 (doc_id=tuition-scholarship-financial-aid-faq, aud=all, score=0.7589) [HIT]
+      # VinUni Tuition Fee, Scholarship, and Financial Aid FAQs...
+Đánh giá Top-1 Relevant: ĐÚNG
+------------------------------------------------------------
+
+--- Câu hỏi 4 ---
+Query: Mức học phí của chương trình đào tạo kỹ sư chuyên sâu Trí tuệ nhân tạo tạo sinh GenAI tại ĐHBKHN được tính như thế nào?
+Metadata filter: None
+Tài liệu mục tiêu: hoc-phi-hust
+Gold answer: Chương trình kỹ sư chuyên sâu GenAI có mức học phí bằng mức học phí chương trình Khoa học dữ liệu và trí tuệ nhân tạo (IT-E10), tính theo số tín chỉ học phí của các học phần đăng ký.
+
+Top-3 Chunks retrieved:
+  [1] hoc-phi-hust#3 (doc_id=hoc-phi-hust, aud=student, score=0.8633) [HIT]
+      ## 2. Quy định về mức học phí đối với chương trình đào tạo Kỹ sư chuyên sâu - Mức học phí/01 tín chỉ học phí (TCHP) đối với các học phần thu...
+  [2] hoc-phi-hust#1 (doc_id=hoc-phi-hust, aud=student, score=0.7410) [HIT]
+      ## 1. Quy định về mức học phí đối với các loại chương trình đào tạo - Quy định về mức học phí năm học 2024-2025 đối với chương trình đào tạo...
+  [3] hoc-phi-hust#0 (doc_id=hoc-phi-hust, aud=student, score=0.7372) [HIT]
+      # Thông báo về mức học phí đối với các chương trình đào tạo năm học 2024-2025  Ban Đào tạo thông báo về mức học phí năm học 2024-2025 áp dụn...
+Đánh giá Top-1 Relevant: ĐÚNG
+------------------------------------------------------------
+
+--- Câu hỏi 5 ---
+Query: Khi đăng ký học phần sinh viên cần lưu ý điều kiện gì và xử lý thế nào khi gặp lỗi trùng lịch?
+Metadata filter: {'audience': 'student'}
+Tài liệu mục tiêu: course-registration
+Gold answer: Cần kiểm tra điều kiện học phần tiên quyết trước khi xác nhận; khi trùng lịch phải điều chỉnh trước thời hạn công bố, yêu cầu ngoại lệ gửi qua kênh hỗ trợ học vụ chính thức.
+
+Top-3 Chunks retrieved:
+  [1] course-registration#0 (doc_id=course-registration, aud=student, score=0.8705) [HIT]
+      # Quy định đăng ký học phần  Sinh viên đăng ký học phần trong cổng học vụ theo lịch của từng học kỳ. Một học phần có thể yêu cầu học phần ti...
+  [2] financial-regulations-tariff-student#3 (doc_id=financial-regulations-tariff-student, aud=student, score=0.6281) [MISS]
+      **General notes on tuition:** - The tuition fees do not distinguish between training methods (online, offline, or hybrid). - Tuition fees ap...
+  [3] hoc-phi-hust#4 (doc_id=hoc-phi-hust, aud=student, score=0.6219) [MISS]
+      ## 3. Chế độ miễn giảm học phí - Đại học hỗ trợ toàn bộ phần chênh lệch giữa mức học phí của Đại học với mức học phí được miễn, giảm theo qu...
+Đánh giá Top-1 Relevant: ĐÚNG
+------------------------------------------------------------

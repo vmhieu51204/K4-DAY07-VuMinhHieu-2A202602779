@@ -6,6 +6,12 @@ from pathlib import Path
 
 from dotenv import load_dotenv
 
+if sys.stdout and hasattr(sys.stdout, "reconfigure"):
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+if sys.stderr and hasattr(sys.stderr, "reconfigure"):
+    sys.stderr.reconfigure(encoding="utf-8", errors="replace")
+
+
 from src.agent import KnowledgeBaseAgent
 from src.embeddings import (
     EMBEDDING_PROVIDER_ENV,
@@ -65,8 +71,9 @@ def demo_llm(prompt: str) -> str:
 
 
 def run_manual_demo(question: str | None = None, sample_files: list[str] | None = None) -> int:
-    files = sample_files or SAMPLE_FILES
-    query = question or "Summarize the key information from the loaded files."
+    uni_files = sorted([str(p) for p in Path("data/university").glob("*.md")])
+    files = sample_files or (uni_files if uni_files else SAMPLE_FILES)
+    query = question or "Mức học phí chương trình Bác sĩ Y khoa và Cử nhân Điều dưỡng tại VinUni là bao nhiêu?"
 
     print("=== Manual File Test ===")
     print("Accepted file types: .md, .txt")

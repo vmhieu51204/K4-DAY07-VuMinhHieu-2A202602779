@@ -106,16 +106,25 @@ def robots_allowed(url: str, user_agent: str) -> bool:
         print(f"Skipping unsupported URL: {url}", file=sys.stderr)
         return False
     robots_url = f"{parsed.scheme}://{parsed.netloc}/robots.txt"
-    parser = RobotFileParser(robots_url)
+    parser = RobotFileParser()
     try:
-        parser.read()
-    except (HTTPError, URLError, OSError) as error:
+        request = Request(robots_url, headers={"User-Agent": user_agent, "Accept": "*/*"})
+        with urlopen(request, timeout=10) as response:
+            lines = response.read().decode("utf-8", errors="replace").splitlines()
+        parser.parse(lines)
+    except HTTPError as error:
+        if error.code == 404:
+            return True
         print(f"Skipping {url}: cannot verify {robots_url} ({error})", file=sys.stderr)
         return False
-    if not parser.can_fetch(user_agent, url):
+    except (URLError, OSError) as error:
+        print(f"Skipping {url}: cannot verify {robots_url} ({error})", file=sys.stderr)
+        return False
+    if not parser.can_fetch(user_agent, url) and not parser.can_fetch("*", url):
         print(f"Skipping {url}: disallowed by robots.txt", file=sys.stderr)
         return False
     return True
+
 
 
 def fetch(url: str, user_agent: str, timeout: float) -> tuple[str, str]:

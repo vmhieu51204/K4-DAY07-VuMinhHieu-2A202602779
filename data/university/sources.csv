@@ -1,0 +1,8 @@
+doc_id,file_path,title,source_url,retrieved_at,document_version,license_or_permission
+course-registration,data\university\course-registration.md,Quy định đăng ký học phần,https://example.edu/hoc-vu/dang-ky-hoc-phan,2026-09-19,2026.1,public-source
+financial-regulations-tariff-student,data\university\financial-regulations-tariff-student.md,Financial Regulations and Tariff for Student,https://policy.vinuni.edu.vn/all-policies/financial-regulations-and-tariff-for-student-2/,2026-09-19,2025-2026,public-source
+hoc-phi-hust,data\university\hoc-phi-hust.md,Thông báo về mức học phí đối với các chương trình đào tạo năm học 2024-2025,https://ctt.hust.edu.vn/DisplayWeb/DisplayBaiViet?baiviet=43466,2026-09-19,2024-2025,public-source
+library-services-faculty,data\university\library-services-faculty.md,Quy định mượn trả tài liệu thư viện cho giảng viên và cán bộ,https://library.vinuni.edu.vn/regulations/borrowing-policy-faculty,2026-09-19,2026.1,public-source
+library-services-student,data\university\library-services-student.md,Quy định mượn trả tài liệu thư viện cho sinh viên,https://library.vinuni.edu.vn/regulations/borrowing-policy-students,2026-09-19,2026.1,public-source
+tuition-scholarship-financial-aid-faq,data\university\tuition-scholarship-financial-aid-faq.md,Tuition Fee Scholarship and Financial Aid FAQs,https://admissions.vinuni.edu.vn/undergraduate/faqs/tuition-fee-scholarship-and-financial-aids/,2026-09-19,not-stated,public-source
+undergraduate-tuition-fees-tariff,data\university\undergraduate-tuition-fees-tariff.md,VinUni Undergraduate Tuition Fees Tariff,https://admissions.vinuni.edu.vn/tuition-fee/undergraduate/,2026-09-19,2026-2027,public-source
