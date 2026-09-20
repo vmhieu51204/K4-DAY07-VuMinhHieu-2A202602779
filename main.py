@@ -73,7 +73,7 @@ def demo_llm(prompt: str) -> str:
 def run_manual_demo(question: str | None = None, sample_files: list[str] | None = None) -> int:
     uni_files = sorted([str(p) for p in Path("data/university").glob("*.md")])
     files = sample_files or (uni_files if uni_files else SAMPLE_FILES)
-    query = question or "Mức học phí chương trình Bác sĩ Y khoa và Cử nhân Điều dưỡng tại VinUni là bao nhiêu?"
+    query = question or "Trường Đại học Công Nghệ gia hạn nộp học phí học kỳ II năm học 2025-2026 đến khi nào?"
 
     print("=== Manual File Test ===")
     print("Accepted file types: .md, .txt")

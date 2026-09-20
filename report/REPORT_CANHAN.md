@@ -1,9 +1,9 @@
 # Báo Cáo Cá Nhân — Lab 7: Embedding & Vector Store
 
 **Họ tên:** Vũ Minh Hiếu  
-**Nhóm:** Nhóm L3A — Biến thể Truy xuất Dịch vụ/Quy định Đại học  
+**Nhóm:** Gì cũng được (Chủ đề: Học phí trường Đại học)  
 **MSSV:** 2A202602779  
-**Ngày:** 19/09/2026  
+**Ngày:** 20/09/2026  
 
 > **Nộp 1 bản / sinh viên.** Phần nhóm (lựa chọn tài liệu, thiết kế chiến lược, bộ câu hỏi đánh giá, demo) nộp chung 1 bản trong `REPORT_NHOM.md`. Chi tiết thang điểm: `docs/SCORING.md`.
 
@@ -158,20 +158,24 @@ tests/test_solution.py::TestEmbeddingStoreDeleteDocument::test_delete_returns_tr
 
 ## 5. Kết quả truy xuất của tôi (Competition Results) — Cá nhân (10 điểm)
 
-Chạy **5 câu hỏi đánh giá của nhóm** trên mã nguồn cá nhân trong gói `src` (sử dụng chiến lược `RecursiveChunker`, embedding `gemini-embedding-001` trên bộ tài liệu dịch vụ/quy định đại học L3A):
+Chạy **5 câu hỏi đánh giá của nhóm** trên mã nguồn cá nhân trong gói `src` (sử dụng chiến lược `RecursiveChunker` với `chunk_size=700`, embedding `gemini-embedding-001` trên bộ tài liệu Học phí trường Đại học gồm 9 văn bản, 53 chunks):
 
 | # | Câu hỏi (Query) | Top-1 Chunk truy xuất được (tóm tắt) | Điểm Score | Có liên quan không? (Relevant) | Câu trả lời của Agent (tóm tắt) |
 |---|-------|--------------------------------|-------|-----------|------------------------|
-| 1 | Mức học phí niêm yết hàng năm của chương trình Bác sĩ Y khoa và Cử nhân Điều dưỡng tại VinUni là bao nhiêu? | `tuition-scholarship-financial-aid-faq#1`: Cử nhân Điều dưỡng 349,650,000 VND/năm; Bác sĩ Y khoa 815,850,000 VND/năm. | 0.8220 | Có (Relevant) | Cử nhân Điều dưỡng là 349,650,000 VND/năm; Bác sĩ Y khoa là 815,850,000 VND/năm (chưa trừ hỗ trợ 35% từ Founder). [1] |
-| 2 | Thời hạn mượn sách in tối đa là bao nhiêu ngày và được mượn bao nhiêu cuốn sách? *(Filter: audience=student)* | `library-services-student#0`: Sinh viên mượn tối đa 05 cuốn sách in trong thời hạn 14 ngày (gia hạn tối đa 02 lần). | 0.7979 | Có (Relevant) | Sinh viên được mượn tối đa 05 cuốn sách in trong thời hạn 14 ngày, gia hạn tối đa 02 lần. [1] |
-| 3 | Sinh viên thanh toán học phí VinUni bằng những phương thức nào và nộp mấy lần trong năm? | `financial-regulations-tariff-student#8`: Nộp trực tuyến qua cổng my.vinuni.edu.vn, nộp trực tiếp thẻ tại Phòng Kế toán hoặc chuyển khoản ngân hàng Techcombank. | 0.8136 | Có (Relevant) | Nộp 2 lần/năm vào đầu mỗi kỳ chính (Thu và Xuân); các phương thức gồm nộp trực tuyến qua cổng my.vinuni.edu.vn, nộp trực tiếp thẻ hoặc chuyển khoản ngân hàng. [1] |
-| 4 | Mức học phí của chương trình đào tạo kỹ sư chuyên sâu Trí tuệ nhân tạo tạo sinh GenAI tại ĐHBKHN được tính như thế nào? | `hoc-phi-hust#3`: Mức học phí bằng mức học phí chương trình Khoa học dữ liệu và trí tuệ nhân tạo (IT-E10), tính theo số tín chỉ học phí đăng ký. | 0.8633 | Có (Relevant) | Chương trình kỹ sư chuyên sâu GenAI có mức học phí bằng mức chương trình IT-E10, tính theo số tín chỉ học phí của các học phần đăng ký. [1] |
-| 5 | Khi đăng ký học phần sinh viên cần lưu ý điều kiện gì và xử lý thế nào khi gặp lỗi trùng lịch? *(Filter: audience=student)* | `course-registration#0`: Kiểm tra học phần tiên quyết trước khi xác nhận; trùng lịch cần điều chỉnh trước thời hạn công bố. | 0.8705 | Có (Relevant) | Cần kiểm tra điều kiện học phần tiên quyết trước khi đăng ký; khi trùng lịch phải điều chỉnh trước thời hạn hoặc gửi yêu cầu ngoại lệ qua kênh chính thức. [1] |
+| 1 | Trường Đại học Công Nghệ gia hạn nộp học phí học kỳ II năm học 2025-2026 đến khi nào? | `gia-han-thoi-gian-nop-hoc-phi-trong-hkii-nam-hoc-2025-2026#0`: Nhà trường tiến hành thu học phí trong HKII... gia hạn thời gian nộp học phí cho các sinh viên đến hết ngày 26/5/2026. | 0.8206 | Có (Relevant) [HIT] | Nhà trường gia hạn thời gian nộp học phí cho sinh viên đến hết ngày 26/5/2026. [1] |
+| 2 | Hướng dẫn đóng học phí học kỳ II năm 2025-2026 qua hệ thống ERP của sinh viên USTH | `tb-ve-viec-thu-hoc-phi-hoc-ky-ii-nam-hoc-2025-2026-chuong-trinh-dao-tao-trinh-do-dai-hoc-29249#1` (và `#2` score 0.7982): Đăng nhập hệ thống ERP: https://erp.usth.edu.vn/students -> Chọn mục Học phí, tra cứu hóa đơn -> Kiểm tra mức học phí phải nộp -> Quét mã QR thanh toán. | 0.8157 | Có (Relevant) [HIT] | Sinh viên đăng nhập ERP tại https://erp.usth.edu.vn/students, chọn mục Học phí, tra cứu hóa đơn, kiểm tra mức nộp và quét mã QR để thanh toán. [1] |
+| 3 | Đối với các khoá 2021 trở về trước thì học bằng kép ở Trường Đại học Công Nghệ năm học 2024-2025 hết bao nhiêu tiền 1 tín chỉ? | `dinh-muc-hoc-phi-dao-tao-dai-hoc-nam-hoc-2024-2025#8` (và `#4` score 0.7589): Định mức học phí chương trình đào tạo bằng kép là: 450.000 đồng/tín chỉ, áp dụng cho học lần đầu, học lại, học cải thiện điểm, tự chọn tự do. | 0.7779 | Có (Relevant) [HIT] | Định mức học phí chương trình đào tạo bằng kép đối với các khoá 2021 trở về trước tại Trường ĐH Công Nghệ là 450.000 đồng/tín chỉ. [1] |
+| 4 | Chương trình định hướng ứng dụng POHE của NEU năm học 2025-2026 có học phí bao nhiêu? | `neu-tuition-fees-2025-2026#0`: Lộ trình học phí NEU... Chương trình định hướng ứng dụng (POHE): Khoảng 45 — 55 triệu đồng/năm. | 0.7938 | Có (Relevant) [HIT] | Mức học phí chương trình POHE (định hướng ứng dụng) của NEU năm học 2025-2026 là khoảng 45 — 55 triệu đồng/năm. [1] |
+| 5 | Theo lộ trình được duyệt thì mức thu học phí đối với sinh viên quốc tế là bao nhiêu? *(Filter: audience=staff)* | `bao-cao-lo-trinh-thu-hoc-phi-cac-he-nam-hoc-2026-2027-19718#5`: 1.2. Đối với sinh viên quốc tế (không phải diện hiệp định) Mức thu: 45.000.000đ/năm học/SV. | 0.7783 | Có (Relevant) [HIT] | Theo lộ trình được duyệt của USSH, mức thu học phí đối với sinh viên quốc tế (không thuộc diện hiệp định) là 45.000.000đ/năm học/SV. [1] |
 
-**Bao nhiêu câu hỏi trả về chunk có liên quan trong top-3?** **5** / 5
+**Bao nhiêu câu hỏi trả về chunk có liên quan trong top-3?** **5** / 5 (100% Top-1 HIT)
 
 **Điều hay nhất tôi học được từ thành viên khác / nhóm khác (qua demo):**
-> Việc áp dụng metadata pre-filtering (như `audience: student` hoặc `department: library`) đóng vai trò quyết định đối với dữ liệu dịch vụ đại học, giúp tách biệt hoàn toàn các quy định riêng giữa sinh viên và giảng viên vốn thường dùng chung nhiều từ khóa. Ngoài ra, việc bảo toàn tiêu đề mục trong quá trình chia nhỏ (heading-preserving chunking) giúp các chunk con không bị mất bối cảnh điều khoản khi tính toán độ tương đồng.
+> 1. **So sánh chiến lược chunking trong nhóm:**
+>    - **RecursiveChunker (tôi và Quang Anh):** Rất linh hoạt và ổn định cho toàn bộ corpus học phí. Do ưu tiên ngắt theo đoạn `\n\n` rồi tới dòng `\n`, thuật toán giữ trọn vẹn ngữ cảnh của các bảng biểu số liệu (học phí tín chỉ, lộ trình thu) và mốc thời hạn (gia hạn đến 26/5/2026), đạt 5/5 Top-1 HIT.
+>    - **HeadingChunker (Tùng và Hiếu D.):** Rất mạnh với văn bản phân mục rõ ràng như quy trình nộp ERP của USTH. Tuy nhiên, nếu tài liệu chỉ có 1 heading lớn (như quyết định UET) thì chunk sẽ bị quá dài (~6500 ký tự) làm loãng ngữ nghĩa, cần kết hợp fall-back sang Recursive.
+>    - **SentenceChunker (Chinh):** Giữ trọn câu ngữ pháp nhưng dễ cắt ngang bảng mức thu học phí phân theo ngành/khóa, dẫn tới mất liên kết giữa tiêu đề cột và con số.
+> 2. **Tầm quan trọng của Metadata Pre-filtering:** Ở câu hỏi 5, tiền lọc `metadata_filter={"audience": "staff"}` đóng vai trò quyết định giúp loại bỏ hoàn toàn các thông báo học phí công khai của sinh viên (UET), định vị chính xác báo cáo nội bộ của USSH.
 
 ---
 

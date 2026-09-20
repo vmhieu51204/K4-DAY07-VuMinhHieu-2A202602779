@@ -1,85 +1,85 @@
 ============================================================
 KẾT QUẢ ĐÁNH GIÁ BENCHMARK TRUY XUẤT (LAB 07)
-Corpus: data\university (7 files, 30 chunks)
+Corpus: data\university (9 files, 53 chunks)
 Backend: gemini-embedding-001
 ============================================================
 
 --- Câu hỏi 1 ---
-Query: Mức học phí niêm yết hàng năm của chương trình Bác sĩ Y khoa và Cử nhân Điều dưỡng tại VinUni là bao nhiêu?
+Query: Trường Đại học Công Nghệ gia hạn nộp học phí học kỳ II năm học 2025-2026 đến khi nào?
 Metadata filter: None
-Tài liệu mục tiêu: undergraduate-tuition-fees-tariff, tuition-scholarship-financial-aid-faq, financial-regulations-tariff-student
-Gold answer: Cử nhân Điều dưỡng là 349,650,000 VND/năm; Bác sĩ Y khoa là 815,850,000 VND/năm (chưa trừ 35% hỗ trợ từ Founder).
+Tài liệu mục tiêu: gia-han-thoi-gian-nop-hoc-phi-trong-hkii-nam-hoc-2025-2026
+Gold answer: 26/05/2026
 
 Top-3 Chunks retrieved:
-  [1] tuition-scholarship-financial-aid-faq#1 (doc_id=tuition-scholarship-financial-aid-faq, aud=all, score=0.8220) [HIT]
-      ## 1. How much does it cost to study at VinUni? - **Listed Tuition for Undergraduate Programs:**   - Bachelor of Nursing: **349,650,000 VND*...
-  [2] financial-regulations-tariff-student#1 (doc_id=financial-regulations-tariff-student, aud=student, score=0.7991) [HIT]
-      **Listed tuition fee by program (Unit: VND):** - **Bachelor of Nursing (4 years):** 349,650,000 VND / academic year; 174,825,000 VND / semes...
-  [3] undergraduate-tuition-fees-tariff#0 (doc_id=undergraduate-tuition-fees-tariff, aud=all, score=0.7834) [HIT]
-      # VinUni Undergraduate Tuition Fees Tariff (Academic Year 2026-2027)  At VinUniversity, every admitted student receives a founder-funded tui...
+  [1] gia-han-thoi-gian-nop-hoc-phi-trong-hkii-nam-hoc-2025-2026#0 (doc_id=gia-han-thoi-gian-nop-hoc-phi-trong-hkii-nam-hoc-2025-2026, aud=student, score=0.8206) [HIT]
+      # gia-han-thoi-gian-nop-hoc-phi-trong-hkii-nam-hoc-2025-2026  Theo thông báo ngày 14/4/2026, Nhà trường tiến hành thu học phí trong HKII năm...
+  [2] tb-ve-viec-thu-hoc-phi-hoc-ky-ii-nam-hoc-2025-2026-chuong-trinh-dao-tao-trinh-do-dai-hoc-29249#0 (doc_id=tb-ve-viec-thu-hoc-phi-hoc-ky-ii-nam-hoc-2025-2026-chuong-trinh-dao-tao-trinh-do-dai-hoc-29249, aud=student, score=0.7914) [MISS]
+      # tb-ve-viec-thu-hoc-phi-hoc-ky-ii-nam-hoc-2025-2026-chuong-trinh-dao-tao-trinh-do-dai-hoc-29249  USTH thông báo thu học phí học kỳ II năm h...
+  [3] gia-han-thoi-gian-nop-hoc-phi-trong-hkii-nam-hoc-2025-2026#1 (doc_id=gia-han-thoi-gian-nop-hoc-phi-trong-hkii-nam-hoc-2025-2026, aud=student, score=0.7705) [HIT]
+      Sau thời gian nói trên, nếu sinh viên nào chưa hoàn thành việc nộp học phí sẽ phải chịu xử lí như trong thông báo ngày 20/5/2026.  Trân trọn...
 Đánh giá Top-1 Relevant: ĐÚNG
 ------------------------------------------------------------
 
 --- Câu hỏi 2 ---
-Query: Thời hạn mượn sách in tối đa là bao nhiêu ngày và được mượn bao nhiêu cuốn sách?
-Metadata filter: {'audience': 'student'}
-Tài liệu mục tiêu: library-services-student
-Gold answer: Sinh viên được mượn tối đa 05 cuốn sách in trong thời hạn 14 ngày (được gia hạn tối đa 02 lần). Cần filter audience=student để không lấy nhầm quy định giảng viên là 30 cuốn/180 ngày.
+Query: Hướng dẫn đóng học phí học kỳ II năm 2025-2026 qua hệ thống ERP của sinh viên USTH
+Metadata filter: None
+Tài liệu mục tiêu: tb-ve-viec-thu-hoc-phi-hoc-ky-ii-nam-hoc-2025-2026-chuong-trinh-dao-tao-trinh-do-dai-hoc-29249
+Gold answer: Đăng nhập hệ thống ERP: https://erp.usth.edu.vn/students -> Chọn mục Học phí, tra cứu hóa đơn -> Kiểm tra mức học phí phải nộp -> Quét mã QR để hoàn tất thanh toán -> Thanh toán được xác nhận khi trạng thái hóa đơn chuyển sang “Đã đóng”.
 
 Top-3 Chunks retrieved:
-  [1] library-services-student#0 (doc_id=library-services-student, aud=student, score=0.7979) [HIT]
-      # Quy định mượn trả tài liệu thư viện cho sinh viên  Thư viện VinUniversity quy định chính sách mượn trả tài liệu học tập và nghiên cứu dành...
-  [2] library-services-student#1 (doc_id=library-services-student, aud=student, score=0.7062) [HIT]
-      ## 2. Phí quá hạn và bồi hoàn - Phí quá hạn đối với sinh viên: 5,000 VND / ngày / cuốn sách. - Sinh viên làm mất hoặc hư hỏng tài liệu phải ...
-  [3] hoc-phi-hust#2 (doc_id=hoc-phi-hust, aud=student, score=0.5721) [MISS]
-      - Quy định về mức học phí năm học 2024-2025 đối với chương trình đào tạo Thạc sĩ, Tiến sĩ (đơn vị tính: nghìn đồng/01 tín chỉ học phí)....
+  [1] tb-ve-viec-thu-hoc-phi-hoc-ky-ii-nam-hoc-2025-2026-chuong-trinh-dao-tao-trinh-do-dai-hoc-29249#1 (doc_id=tb-ve-viec-thu-hoc-phi-hoc-ky-ii-nam-hoc-2025-2026-chuong-trinh-dao-tao-trinh-do-dai-hoc-29249, aud=student, score=0.8157) [HIT]
+      Ngành Kỹ thuật Hàng không (3 năm tại Trường, 1 năm tại VAECO)  62,5  Không áp dụng  Ngành Kỹ thuật Hàng không (3 năm tại Trường)  50,0  70,2...
+  [2] tb-ve-viec-thu-hoc-phi-hoc-ky-ii-nam-hoc-2025-2026-chuong-trinh-dao-tao-trinh-do-dai-hoc-29249#0 (doc_id=tb-ve-viec-thu-hoc-phi-hoc-ky-ii-nam-hoc-2025-2026-chuong-trinh-dao-tao-trinh-do-dai-hoc-29249, aud=student, score=0.8111) [HIT]
+      # tb-ve-viec-thu-hoc-phi-hoc-ky-ii-nam-hoc-2025-2026-chuong-trinh-dao-tao-trinh-do-dai-hoc-29249  USTH thông báo thu học phí học kỳ II năm h...
+  [3] tb-ve-viec-thu-hoc-phi-hoc-ky-ii-nam-hoc-2025-2026-chuong-trinh-dao-tao-trinh-do-dai-hoc-29249#2 (doc_id=tb-ve-viec-thu-hoc-phi-hoc-ky-ii-nam-hoc-2025-2026-chuong-trinh-dao-tao-trinh-do-dai-hoc-29249, aud=student, score=0.7982) [HIT]
+      Chọn mục  Học phí  , tra cứu hóa đơn  Kiểm tra mức học phí phải nộp  Quét mã QR để hoàn tất thanh toán  Thanh toán được xác nhận khi trạng t...
 Đánh giá Top-1 Relevant: ĐÚNG
 ------------------------------------------------------------
 
 --- Câu hỏi 3 ---
-Query: Sinh viên thanh toán học phí VinUni bằng những phương thức nào và nộp mấy lần trong năm?
+Query: Đối với các khoá 2021 trở về trước thì học bằng kép ở Trường Đại học Công Nghệ năm học 2024-2025 hết bao nhiêu tiền 1 tín chỉ?
 Metadata filter: None
-Tài liệu mục tiêu: tuition-scholarship-financial-aid-faq, financial-regulations-tariff-student
-Gold answer: Nộp 2 lần/năm vào đầu mỗi học kỳ chính (kỳ Thu và kỳ Xuân). Có các phương thức: nộp trực tuyến qua cổng my.vinuni.edu.vn, nộp trực tiếp thẻ tại Phòng Kế toán hoặc chuyển khoản ngân hàng Techcombank.
+Tài liệu mục tiêu: dinh-muc-hoc-phi-dao-tao-dai-hoc-nam-hoc-2024-2025
+Gold answer: 450.000 đồng/tín chỉ
 
 Top-3 Chunks retrieved:
-  [1] financial-regulations-tariff-student#8 (doc_id=financial-regulations-tariff-student, aud=student, score=0.8136) [HIT]
-      ### 1. Payment Methods - **Online Payment:** Through the online payment portal at `https://my.vinuni.edu.vn/` - **Bank Transfer (VND):**   -...
-  [2] tuition-scholarship-financial-aid-faq#2 (doc_id=tuition-scholarship-financial-aid-faq, aud=all, score=0.7919) [HIT]
-        - Further deductions apply if students receive additional merit scholarships (50%, 90%, 100%, full ride) or need-based financial aid.  ## ...
-  [3] tuition-scholarship-financial-aid-faq#0 (doc_id=tuition-scholarship-financial-aid-faq, aud=all, score=0.7589) [HIT]
-      # VinUni Tuition Fee, Scholarship, and Financial Aid FAQs...
+  [1] dinh-muc-hoc-phi-dao-tao-dai-hoc-nam-hoc-2024-2025#8 (doc_id=dinh-muc-hoc-phi-dao-tao-dai-hoc-nam-hoc-2024-2025, aud=student, score=0.7779) [HIT]
+      Học lại, cải thiện điểm, tự chọn tự do (đồng/1 tín chỉ)  1  Khóa QH-2023-I/CQ, 2024-I/CQ: Chương trình đào tạo chuẩn/chất lượng cao  32.000....
+  [2] dinh-muc-hoc-phi-dao-tao-dai-hoc-nam-hoc-2024-2025#3 (doc_id=dinh-muc-hoc-phi-dao-tao-dai-hoc-nam-hoc-2024-2025, aud=student, score=0.7777) [HIT]
+      Căn cứ Tờ trình ngày 23 tháng 9 năm 2024 về định mức thu học phí bậc đào tạo đại học tại trường ĐHCN trong năm học 2024 -2025 của các phòng ...
+  [3] dinh-muc-hoc-phi-dao-tao-dai-hoc-nam-hoc-2024-2025#4 (doc_id=dinh-muc-hoc-phi-dao-tao-dai-hoc-nam-hoc-2024-2025, aud=student, score=0.7589) [HIT]
+      – Định mức học phí chương trình đào tạo bằng kép là: 450.000 đồng/tín chỉ, áp dụng cho các hình thức: học lần đầu, học lại, học cải thiện đi...
 Đánh giá Top-1 Relevant: ĐÚNG
 ------------------------------------------------------------
 
 --- Câu hỏi 4 ---
-Query: Mức học phí của chương trình đào tạo kỹ sư chuyên sâu Trí tuệ nhân tạo tạo sinh GenAI tại ĐHBKHN được tính như thế nào?
+Query: Chương trình định hướng ứng dụng POHE của NEU năm học 2025-2026 có học phí bao nhiêu?
 Metadata filter: None
-Tài liệu mục tiêu: hoc-phi-hust
-Gold answer: Chương trình kỹ sư chuyên sâu GenAI có mức học phí bằng mức học phí chương trình Khoa học dữ liệu và trí tuệ nhân tạo (IT-E10), tính theo số tín chỉ học phí của các học phần đăng ký.
+Tài liệu mục tiêu: neu-tuition-fees-2025-2026, neu-tuition-decision-985-2026-2027
+Gold answer: Khoảng 45 — 55 triệu đồng/năm
 
 Top-3 Chunks retrieved:
-  [1] hoc-phi-hust#3 (doc_id=hoc-phi-hust, aud=student, score=0.8633) [HIT]
-      ## 2. Quy định về mức học phí đối với chương trình đào tạo Kỹ sư chuyên sâu - Mức học phí/01 tín chỉ học phí (TCHP) đối với các học phần thu...
-  [2] hoc-phi-hust#1 (doc_id=hoc-phi-hust, aud=student, score=0.7410) [HIT]
-      ## 1. Quy định về mức học phí đối với các loại chương trình đào tạo - Quy định về mức học phí năm học 2024-2025 đối với chương trình đào tạo...
-  [3] hoc-phi-hust#0 (doc_id=hoc-phi-hust, aud=student, score=0.7372) [HIT]
-      # Thông báo về mức học phí đối với các chương trình đào tạo năm học 2024-2025  Ban Đào tạo thông báo về mức học phí năm học 2024-2025 áp dụn...
+  [1] neu-tuition-fees-2025-2026#0 (doc_id=neu-tuition-fees-2025-2026, aud=student, score=0.7938) [HIT]
+      # neu-tuition-fees-2025-2026  Năm học 2025-2026, Đại học Kinh tế Quốc dân tiếp tục thực hiện lộ trình học phí theo Nghị định số 81/2021/NĐ-C...
+  [2] neu-tuition-decision-985-2026-2027#1 (doc_id=neu-tuition-decision-985-2026-2027, aud=student, score=0.7480) [HIT]
+      Học phí tính theo tháng, thu đủ 10 tháng mỗi năm học, áp dụng thống nhất cho các khóa 64 đến 68, không đổi so với năm học 2025-2026.  Chương...
+  [3] neu-tuition-decision-985-2026-2027#0 (doc_id=neu-tuition-decision-985-2026-2027, aud=student, score=0.7277) [HIT]
+      # neu-tuition-decision-985-2026-2027  Đại học Kinh tế Quốc dân vừa ban hành Quyết định số 985/QĐ-ĐHKTQD ngày 10/8/2026, quy định mức thu học...
 Đánh giá Top-1 Relevant: ĐÚNG
 ------------------------------------------------------------
 
 --- Câu hỏi 5 ---
-Query: Khi đăng ký học phần sinh viên cần lưu ý điều kiện gì và xử lý thế nào khi gặp lỗi trùng lịch?
-Metadata filter: {'audience': 'student'}
-Tài liệu mục tiêu: course-registration
-Gold answer: Cần kiểm tra điều kiện học phần tiên quyết trước khi xác nhận; khi trùng lịch phải điều chỉnh trước thời hạn công bố, yêu cầu ngoại lệ gửi qua kênh hỗ trợ học vụ chính thức.
+Query: Theo lộ trình được duyệt thì mức thu học phí đối với sinh viên quốc tế là bao nhiêu?
+Metadata filter: {'audience': 'staff'}
+Tài liệu mục tiêu: bao-cao-lo-trinh-thu-hoc-phi-cac-he-nam-hoc-2026-2027-19718
+Gold answer: 45.000.000đ/năm học/SV
 
 Top-3 Chunks retrieved:
-  [1] course-registration#0 (doc_id=course-registration, aud=student, score=0.8705) [HIT]
-      # Quy định đăng ký học phần  Sinh viên đăng ký học phần trong cổng học vụ theo lịch của từng học kỳ. Một học phần có thể yêu cầu học phần ti...
-  [2] financial-regulations-tariff-student#3 (doc_id=financial-regulations-tariff-student, aud=student, score=0.6281) [MISS]
-      **General notes on tuition:** - The tuition fees do not distinguish between training methods (online, offline, or hybrid). - Tuition fees ap...
-  [3] hoc-phi-hust#4 (doc_id=hoc-phi-hust, aud=student, score=0.6219) [MISS]
-      ## 3. Chế độ miễn giảm học phí - Đại học hỗ trợ toàn bộ phần chênh lệch giữa mức học phí của Đại học với mức học phí được miễn, giảm theo qu...
+  [1] bao-cao-lo-trinh-thu-hoc-phi-cac-he-nam-hoc-2026-2027-19718#5 (doc_id=bao-cao-lo-trinh-thu-hoc-phi-cac-he-nam-hoc-2026-2027-19718, aud=staff, score=0.7783) [HIT]
+      1.1.4.2. Các ngành dự kiến thu theo thuyết minh định mức kinh tế - kỹ thuật (áp dụng chính thức sau khi được Đại học Quốc gia phê duyệt)  - ...
+  [2] bao-cao-lo-trinh-thu-hoc-phi-cac-he-nam-hoc-2026-2027-19718#1 (doc_id=bao-cao-lo-trinh-thu-hoc-phi-cac-he-nam-hoc-2026-2027-19718, aud=staff, score=0.7337) [HIT]
+      Trường Đại học Khoa học Xã hội và Nhân văn xin được báo cáo lộ trình thu học phí năm học 2026-2027 như sau:  1. Đối với bậc đại học hệ chính...
+  [3] bao-cao-lo-trinh-thu-hoc-phi-cac-he-nam-hoc-2026-2027-19718#15 (doc_id=bao-cao-lo-trinh-thu-hoc-phi-cac-he-nam-hoc-2026-2027-19718, aud=staff, score=0.7299) [HIT]
+      - Chương trình tiến sĩ: ((Thu học phí theo Nghị định 238/2025/NĐ-CP)  Mức thu: 4.775.000đ/tháng/NCS.  Hình thức thu: Thu theo tháng (thu 10 ...
 Đánh giá Top-1 Relevant: ĐÚNG
 ------------------------------------------------------------
